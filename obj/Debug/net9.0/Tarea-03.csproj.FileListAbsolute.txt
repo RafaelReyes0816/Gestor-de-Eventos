@@ -1,0 +1,14 @@
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/bin/Debug/net9.0/Tarea-03
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/bin/Debug/net9.0/Tarea-03.deps.json
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/bin/Debug/net9.0/Tarea-03.runtimeconfig.json
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/bin/Debug/net9.0/Tarea-03.dll
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/bin/Debug/net9.0/Tarea-03.pdb
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/obj/Debug/net9.0/Tarea-03.GeneratedMSBuildEditorConfig.editorconfig
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/obj/Debug/net9.0/Tarea-03.AssemblyInfoInputs.cache
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/obj/Debug/net9.0/Tarea-03.AssemblyInfo.cs
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/obj/Debug/net9.0/Tarea-03.csproj.CoreCompileInputs.cache
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/obj/Debug/net9.0/Tarea-03.dll
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/obj/Debug/net9.0/refint/Tarea-03.dll
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/obj/Debug/net9.0/Tarea-03.pdb
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/obj/Debug/net9.0/Tarea-03.genruntimeconfig.cache
+/home/rafaelreyes/Documentos/Tareas/Tarea-03/obj/Debug/net9.0/ref/Tarea-03.dll
