@@ -1,16 +1,17 @@
 using Tarea03.Models;
 using Tarea03.Estructuras;
+using System.Collections.Generic;
 
 namespace Tarea03.Servicios
 {
-    //Esta clase gestiona la lógica de la agenda de eventos utilizando una lista enlazada.
+    //Esta clase gestiona la lógica de la agenda de eventos utilizando una lista enlazada genérica.
     public class GestorEventos
     {
-        private ListaEnlazada lista;
+        private ListaEnlazada<Evento> lista;
 
         public GestorEventos()
         {
-            lista = new ListaEnlazada();
+            lista = new ListaEnlazada<Evento>();
         }
 
         public void AgregarEvento(int id, string nombre, DateTime fecha, string lugar, string descripcion)
@@ -21,12 +22,12 @@ namespace Tarea03.Servicios
 
         public bool EliminarEvento(int id)
         {
-            return lista.Eliminar(id);
+            return lista.Eliminar(e => e.Id == id);
         }
 
         public Evento BuscarEvento(int id)
         {
-            return lista.Buscar(id);
+            return lista.Buscar(e => e.Id == id);
         }
 
         public List<Evento> ObtenerTodos()
@@ -36,7 +37,7 @@ namespace Tarea03.Servicios
 
         public bool MarcarComoRealizado(int id)
         {
-            Evento evento = lista.Buscar(id);
+            Evento evento = BuscarEvento(id);
             if (evento != null && !evento.Realizado)
             {
                 evento.Realizado = true;
@@ -48,7 +49,7 @@ namespace Tarea03.Servicios
         public List<Evento> ObtenerPendientes()
         {
             List<Evento> pendientes = new List<Evento>();
-            foreach (Evento e in lista.ObtenerTodos())
+            foreach (Evento e in ObtenerTodos())
             {
                 if (!e.Realizado)
                     pendientes.Add(e);
@@ -59,7 +60,7 @@ namespace Tarea03.Servicios
         public List<Evento> ObtenerRealizados()
         {
             List<Evento> realizados = new List<Evento>();
-            foreach (Evento e in lista.ObtenerTodos())
+            foreach (Evento e in ObtenerTodos())
             {
                 if (e.Realizado)
                     realizados.Add(e);

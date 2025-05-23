@@ -1,39 +1,40 @@
+using System.Collections.Generic;
 using Tarea03.Models;
 
 namespace Tarea03.Estructuras
 {
-    //Lista enlazada simple para almacenar objetos Evento.
-    public class Nodo
+    // Lista enlazada simple genérica para almacenar cualquier tipo de objeto.
+    public class Nodo<T>
     {
-        public Evento Dato { get; set; }
-        public Nodo Siguiente { get; set; }
+        public T Dato { get; set; }
+        public Nodo<T> Siguiente { get; set; }
 
-        public Nodo(Evento dato)
+        public Nodo(T dato)
         {
             Dato = dato;
             Siguiente = null;
         }
     }
 
-    public class ListaEnlazada
+    public class ListaEnlazada<T>
     {
-        private Nodo cabeza;
+        private Nodo<T> cabeza;
 
         public ListaEnlazada()
         {
             cabeza = null;
         }
 
-        public void Agregar(Evento evento)
+        public void Agregar(T dato)
         {
-            Nodo nuevo = new Nodo(evento);
+            Nodo<T> nuevo = new Nodo<T>(dato);
             if (cabeza == null)
             {
                 cabeza = nuevo;
             }
             else
             {
-                Nodo actual = cabeza;
+                Nodo<T> actual = cabeza;
                 while (actual.Siguiente != null)
                 {
                     actual = actual.Siguiente;
@@ -42,23 +43,19 @@ namespace Tarea03.Estructuras
             }
         }
 
-        public bool Eliminar(int id)
+        public bool Eliminar(Predicate<T> condicion)
         {
-            Nodo actual = cabeza;
-            Nodo anterior = null;
+            Nodo<T> actual = cabeza;
+            Nodo<T> anterior = null;
 
             while (actual != null)
             {
-                if (actual.Dato.Id == id)
+                if (condicion(actual.Dato))
                 {
                     if (anterior == null)
-                    {
                         cabeza = actual.Siguiente;
-                    }
                     else
-                    {
                         anterior.Siguiente = actual.Siguiente;
-                    }
                     return true;
                 }
                 anterior = actual;
@@ -67,30 +64,28 @@ namespace Tarea03.Estructuras
             return false;
         }
 
-        public Evento Buscar(int id)
+        public T Buscar(Predicate<T> condicion)
         {
-            Nodo actual = cabeza;
+            Nodo<T> actual = cabeza;
             while (actual != null)
             {
-                if (actual.Dato.Id == id)
-                {
+                if (condicion(actual.Dato))
                     return actual.Dato;
-                }
                 actual = actual.Siguiente;
             }
-            return null;
+            return default(T);
         }
 
-        public List<Evento> ObtenerTodos()
+        public List<T> ObtenerTodos()
         {
-            List<Evento> eventos = new List<Evento>();
-            Nodo actual = cabeza;
+            List<T> lista = new List<T>();
+            Nodo<T> actual = cabeza;
             while (actual != null)
             {
-                eventos.Add(actual.Dato);
+                lista.Add(actual.Dato);
                 actual = actual.Siguiente;
             }
-            return eventos;
+            return lista;
         }
     }
 }
